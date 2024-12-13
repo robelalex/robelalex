@@ -1,1 +1,23 @@
 @import url(/node_modules/normalize.css/normalize.css);
+
+:root {
+  --primary-clr: #091133;
+  --secondary-clr: #505f98;
+  --text-accent: #5d6970;
+  --bgc-clr: #f0f0f0;
+  --header-clr: #37447e;
+  --big-text-clr: #222f65;
+  --desc-text-clr: #6f7cb2;
+  --box-clr: #111b47;
+  --icon-clr: #b0b8bc;
+
+  --primary-font: "Roboto", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bgc-clr);
+}
