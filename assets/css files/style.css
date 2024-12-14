@@ -10,14 +10,184 @@
   --desc-text-clr: #6f7cb2;
   --box-clr: #111b47;
   --icon-clr: #b0b8bc;
+  --white-clr: #ffffff;
 
   --primary-font: "Roboto", sans-serif;
 }
 
 * {
   box-sizing: border-box;
+  font-family: var(--primary-font);
 }
 
 body {
-  background-color: var(--bgc-clr);
+  background-color: var(--white-clr);
+}
+
+/* header section style */
+
+.bgc-img {
+  position: absolute;
+  background-image: url(../images/hero.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 950px;
+  height: 800px;
+  right: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+header nav ul {
+  list-style-type: none;
+  width: 245px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+header nav a {
+  color: var(--secondary-clr);
+}
+
+header .title {
+  color: var(--header-clr);
+  z-index: 1;
+}
+header .title h1 {
+  font-size: 26px;
+  font-weight: 800;
+}
+
+header button {
+  width: 160px;
+  height: 26px;
+  background-color: var(--box-clr);
+  z-index: 1;
+}
+
+header button a {
+  color: var(--white-clr);
+  font-size: 12px;
+}
+
+.hero {
+  width: 800px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero > div {
+  width: 560px;
+  height: 420px;
+  padding-left: 64px;
+}
+
+.hero div h2 {
+  font-size: 50px;
+  color: var(--primary-clr);
+}
+
+.hero div .para {
+  font-size: 18px;
+  color: var(--secondary-clr);
+  line-height: 1.7;
+}
+
+.hero .btns {
+  display: flex;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.hero .btns button:first-child {
+  width: 180px;
+  height: 36px;
+  background-color: var(--box-clr);
+}
+
+.hero .btns button:first-child a {
+  color: var(--white-clr);
+}
+
+.hero .btns button:last-child {
+  width: 180px;
+  height: 36px;
+  border: 3px solid var(--box-clr);
+}
+
+.hero .btns button:last-child a {
+  color: var(--box-clr);
+}
+
+/* features sections style */
+
+.features {
+  display: flex;
+  padding: 164px 170px;
+  margin-top: 100px;
+}
+
+.features .left-side {
+  width: 565px;
+}
+
+.features .left-side h2 {
+  font-size: 36px;
+  color: var(--primary-clr);
+}
+
+.features .left-side > p {
+  color: var(--desc-text-clr);
+  line-height: 1.6;
+  padding-bottom: 10px;
+}
+
+.features .left-side .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 53px;
+}
+
+.features .container .box {
+  width: 255px;
+  height: 139px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.features .container .box img {
+  width: 36px;
+  height: 36px;
+}
+
+.features .container .box h3 {
+  margin: 0;
+  margin-top: 14px;
+  color: var(--primary-clr);
+}
+
+.features .container .box p {
+  font-size: 12px;
+  color: var(--text-accent);
+  margin: 0;
+}
+
+.features .right-side {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
