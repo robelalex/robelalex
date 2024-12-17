@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - MyDistrict</title>
+    <link rel="stylesheet" href="../css files/contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1 class="animate-title">Contact Us</h1>
+        <p class="animate-text">Get in touch with MyDistrict team. We're here to help!</p>
+
+        <div class="contact-container">
+            <form id="contactForm" class="animate-form">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject:</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+
+            <div class="contact-info animate-info">
+                <h2>Contact Information</h2>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i>Bole, Addis Abeba, Ethiopia</li>
+                    <li><i class="fas fa-phone"></i> (251) 928754234</li>
+                    <li><i class="fas fa-envelope"></i> info@MyDistrict.com</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="formStatus" class="animate-status"></div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 MyDistrict. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+    const inputs = document.querySelectorAll('input, textarea');
+
+    // Add animation to form inputs
+    inputs.forEach(input => {
+        input.addEventListener('focus', function() {
+            this.parentElement.classList.add('input-focus');
+        });
+
+        input.addEventListener('blur', function() {
+            if (this.value === '') {
+                this.parentElement.classList.remove('input-focus');
+            }
+        });
+    });
+
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Basic form validation
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const subject = document.getElementById('subject').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        if (name === '' || email === '' || subject === '' || message === '') {
+            showStatus('Please fill in all fields.', 'error');
+            return;
+        }
+
+        if (!isValidEmail(email)) {
+            showStatus('Please enter a valid email address.', 'error');
+            return;
+        }
+
+        // Simulate form submission (replace with actual form submission logic)
+        showStatus('Sending message...', 'info');
+
+        setTimeout(function() {
+            showStatus('Message sent successfully!', 'success');
+            contactForm.reset();
+            inputs.forEach(input => input.parentElement.classList.remove('input-focus'));
+        }, 2000);
+    });
+
+    function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
+    function showStatus(message, type) {
+        formStatus.textContent = message;
+        formStatus.className = 'animate-status';
+        
+        switch(type) {
+            case 'error':
+                formStatus.style.color = '#ff0000';
+                break;
+            case 'success':
+                formStatus.style.color = '#008000';
+                break;
+            default:
+                formStatus.style.color = '#000000';
+        }
+
+        formStatus.style.display = 'block';
+        setTimeout(() => {
+            formStatus.classList.remove('animate-status');
+        }, 500);
+    }
+});
+
+
+    </script>
+</body>
+</html>
+
