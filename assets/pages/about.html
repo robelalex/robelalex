@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - MyDistrict</title>
+    <link rel="stylesheet" href="../css files/about.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h1 class="animate-title">About MyDistrict</h1>
+        <p class="animate-text">
+          Empowering communities through efficient and innovative management
+          solutions.
+        </p>
+      </section>
+
+      <section class="about-content">
+        <div class="card animate-card">
+          <i class="fas fa-chart-line"></i>
+          <h2>Our Mission</h2>
+          <p>
+            To revolutionize district management by providing cutting-edge tools
+            and strategies that enhance efficiency, transparency, and community
+            engagement.
+          </p>
+        </div>
+        <div class="card animate-card">
+          <i class="fas fa-users"></i>
+          <h2>Our Team</h2>
+          <p>
+            A diverse group of experts in public administration, technology, and
+            community development, dedicated to creating positive change in
+            districts worldwide.
+          </p>
+        </div>
+        <div class="card animate-card">
+          <i class="fas fa-lightbulb"></i>
+          <h2>Our Approach</h2>
+          <p>
+            We combine data-driven insights with innovative technology to
+            address complex challenges and foster sustainable growth in
+            communities of all sizes.
+          </p>
+        </div>
+      </section>
+
+      <section class="timeline">
+        <h2 class="animate-title">Our Journey</h2>
+        <div class="timeline-container">
+          <div class="timeline-item animate-timeline">
+            <div class="timeline-content">
+              <h3>2014</h3>
+              <p>Founded with a vision to transform district management</p>
+            </div>
+          </div>
+          <div class="timeline-item animate-timeline">
+            <div class="timeline-content">
+              <h3>2015</h3>
+              <p>
+                Developed core MyDistrict modules for citizen services and data management
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item animate-timeline">
+            <div class="timeline-content">
+              <h3>2016</h3>
+              <p>Launched our first comprehensive management platform</p>
+            </div>
+          </div>
+          <div class="timeline-item animate-timeline">
+            <div class="timeline-content">
+              <h3>2017</h3>
+              <p>
+                Piloted and rigorously tested the DMS platform
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item animate-timeline">
+            <div class="timeline-content">
+              <h3>Today</h3>
+              <p>Continuously improving and expanding MyDistrict impact on district operations</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 MyDistrict. All rights reserved.</p>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Animate cards
+        const cards = document.querySelectorAll(".animate-card");
+        const animateCards = () => {
+          cards.forEach((card, index) => {
+            if (isElementInViewport(card)) {
+              setTimeout(() => {
+                card.style.animation = `fadeInUp 1s ease-out ${
+                  index * 0.2
+                }s forwards`;
+              }, 100);
+            }
+          });
+        };
+
+        // Animate timeline items
+        const timelineItems = document.querySelectorAll(".animate-timeline");
+        const animateTimeline = () => {
+          timelineItems.forEach((item, index) => {
+            if (isElementInViewport(item)) {
+              setTimeout(() => {
+                item.style.animation =
+                  index % 2 === 0
+                    ? "slideInLeft 1s ease-out forwards"
+                    : "slideInRight 1s ease-out forwards";
+              }, index * 200);
+            }
+          });
+        };
+
+        // Check if element is in viewport
+        function isElementInViewport(el) {
+          const rect = el.getBoundingClientRect();
+          return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <=
+              (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <=
+              (window.innerWidth || document.documentElement.clientWidth)
+          );
+        }
+
+        // Run animations on scroll
+        window.addEventListener("scroll", () => {
+          animateCards();
+          animateTimeline();
+        });
+
+        // Initial animation call
+        animateCards();
+        animateTimeline();
+      });
+    </script>
+  </body>
+</html>
