@@ -5,31 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login - MyDistrict</title>
     <link rel="stylesheet" href="../css files/login.css" />
-    <script src="../js files/effects.js" defer></script>
+    <script src="../js files/userAuth.js" defer></script>
   </head>
   <body>
+    <div class="notification-container" id="notification-container"></div>
+
     <div id="container" class="container">
       <!-- FORM SECTION -->
       <div class="row">
         <!-- SIGN UP -->
-        <div class="col align-items-center flex-col sign-up">
+        <form class="col align-items-center flex-col sign-up userAuth" method="post" action="../includes/user-registration.php">
+          
           <div class="form-wrapper align-items-center">
             <div class="form sign-up">
               <div class="input-group">
                 <i class="bx bxs-user"></i>
-                <input type="text" placeholder="Username" />
+                <input type="text" placeholder="Username" name="username"/>
               </div>
               <div class="input-group">
                 <i class="bx bx-mail-send"></i>
-                <input type="email" placeholder="Email" />
+                <input type="email" placeholder="Email" name="email"/>
               </div>
               <div class="input-group">
                 <i class="bx bxs-lock-alt"></i>
-                <input type="password" placeholder="Password" />
+                <input type="password" placeholder="Password" name="password"/>
               </div>
               <div class="input-group">
                 <i class="bx bxs-lock-alt"></i>
-                <input type="password" placeholder="Confirm password" />
+                <input type="password" placeholder="Confirm password" name="confirm-password"/>
               </div>
               <button>Sign up</button>
               <p>
@@ -38,19 +41,19 @@
               </p>
             </div>
           </div>
-        </div>
-        <!-- END SIGN UP -->
+        </form>
+        
         <!-- SIGN IN -->
-        <div class="col align-items-center flex-col sign-in">
+        <form class="col align-items-center flex-col sign-in userAuth" method="post" action="../includes/user-authentication .php">
           <div class="form-wrapper align-items-center">
             <div class="form sign-in">
               <div class="input-group">
                 <i class="bx bxs-user"></i>
-                <input type="text" placeholder="Username" />
+                <input type="text" placeholder="Username" name="username"/>
               </div>
               <div class="input-group">
                 <i class="bx bxs-lock-alt"></i>
-                <input type="password" placeholder="Password" />
+                <input type="password" placeholder="Password" name="password"/>
               </div>
               <button>Sign in</button>
               <p>
@@ -63,10 +66,11 @@
             </div>
           </div>
           <div class="form-wrapper"></div>
-        </div>
-        <!-- END SIGN IN -->
+        </form>
+        
       </div>
       <!-- END FORM SECTION -->
+       
       <!-- CONTENT SECTION -->
       <div class="row content-row">
         <!-- SIGN IN CONTENT -->
@@ -76,7 +80,7 @@
           </div>
           <div class="img sign-in"></div>
         </div>
-        <!-- END SIGN IN CONTENT -->
+        
         <!-- SIGN UP CONTENT -->
         <div class="col align-items-center flex-col">
           <div class="img sign-up"></div>
@@ -84,7 +88,7 @@
             <h2>Join with us</h2>
           </div>
         </div>
-        <!-- END SIGN UP CONTENT -->
+        
       </div>
       <!-- END CONTENT SECTION -->
     </div>

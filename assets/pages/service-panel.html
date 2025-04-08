@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Services - MyDistrict</title>
+    <link rel="stylesheet" href="../css files/service-panel.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script src="../js files/services.js" defer></script>
+  </head>
+  <body>
+    <div class="notification-container" id="notification-container"></div>
+
+    
+    <header>
+      <nav>
+        <ul>
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html" class="active">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="flex-container">
+      <div class="container">
+        <h1>MyDistrict Services</h1>
+        <div class="service-panel">
+          <div class="service-list">
+            <button class="service-btn active" data-service="citizen">
+              <i class="fas fa-user-circle"></i>
+              Citizen Services
+            </button>
+            <button class="service-btn" data-service="complaint">
+              <i class="fas fa-comments"></i>
+              Complaint Management
+            </button>
+            <button class="service-btn" data-service="document">
+              <i class="fas fa-file-alt"></i>
+              Document Management
+            </button>
+            <button class="service-btn" data-service="certificate">
+              <i class="fas fa-certificate"></i>
+              Certificate Applications
+            </button>
+            <button class="service-btn" data-service="permits">
+              <i class="fas fa-building"></i>
+              Permits and Licenses
+            </button>
+            <button class="service-btn" data-service="tax">
+              <i class="fas fa-money-bill-wave"></i>
+              Tax and Bill Payments
+            </button>
+            <button class="service-btn" data-service="scholarship">
+              <i class="fas fa-graduation-cap"></i>
+              Scholarship Applications
+            </button>
+          </div>
+          <div class="service-content">
+            <div id="citizen" class="service-info active">
+              <h2>Citizen Services</h2>
+              <form
+                id="citizenForm"
+                class="service-form"
+                action="../includes/services-managment.php"
+                method="POST"
+                enctype="multipart/form-data"
+              >
+                <input type="hidden" name="serviceType" value="citizen" />
+                <label for="citizenName">Full Name:</label>
+                <input
+                  type="text"
+                  id="citizenName"
+                  name="citizenName"
+                  required
+                />
+                <label for="citizenEmail">Email:</label>
+                <input
+                  type="email"
+                  id="citizenEmail"
+                  name="citizenEmail"
+                  required
+                />
+                <label for="citizenService">Select Service:</label>
+                <select id="citizenService" name="citizenService" required>
+                  <option value="">Choose a service</option>
+                  <option value="Birth Certificate">Birth Certificate</option>
+                  <option value="Death Certificate">Death Certificate</option>
+                  <option value="Marriage Certificate">
+                    Marriage Certificate
+                  </option>
+                  <option value="Residence Certificate">
+                    Residence Certificate
+                  </option>
+                </select>
+                <label for="citizenComments">Additional Comments:</label>
+                <textarea
+                  id="citizenComments"
+                  name="citizenComments"
+                ></textarea>
+                <button type="submit" class="submit-btn">
+                  Submit Application
+                </button>
+              </form>
+            </div>
+            <div id="complaint" class="service-info">
+              <h2>Complaint Management</h2>
+              <form
+                id="complaintForm"
+                class="service-form"
+                action="../includes/services-managment.php"
+                method="POST"
+                enctype="multipart/form-data"
+              >
+                <input type="hidden" name="serviceType" value="complain" />
+                <label for="complaintName">Full Name:</label>
+                <input
+                  type="text"
+                  id="complaintName"
+                  name="complaintName"
+                  required
+                />
+                <label for="complaintEmail">Email:</label>
+                <input
+                  type="email"
+                  id="complaintEmail"
+                  name="complaintEmail"
+                  required
+                />
+                <label for="complaintType">Complaint Type:</label>
+                <select id="complaintType" name="complaintType" required>
+                  <option value="">Select complaint type</option>
+                  <option value="Water Supply">Water Supply</option>
+                  <option value="Electricity">Electricity</option>
+                  <option value="Roads and Infrastructure">
+                    Roads and Infrastructure
+                  </option>
+                  <option value="Sanitation">Sanitation</option>
+                  <option value="Other">Other</option>
+                </select>
+                <label for="complaintDetails">Complaint Details:</label>
+                <textarea
+                  id="complaintDetails"
+                  name="complaintDetails"
+                  required
+                ></textarea>
+                <button type="submit" class="submit-btn">File Complaint</button>
+              </form>
+            </div>
+            <div id="document" class="service-info">
+              <h2>Document Management</h2>
+              <form
+                id="documentForm"
+                class="service-form"
+                action="../includes/services-managment.php"
+                method="POST"
+                enctype="multipart/form-data"
+              >
+                <input type="hidden" name="serviceType" value="document" />
+                <label for="documentName">Full Name:</label>
+                <input
+                  type="text"
+                  id="documentName"
+                  name="documentName"
+                  required
+                />
+                <label for="documentEmail">Email:</label>
+                <input
+                  type="email"
+                  id="documentEmail"
+                  name="documentEmail"
+                  required
+                />
+                <label for="documentType">Document Type:</label>
+                <select id="documentType" name="documentType" required>
+                  <option value="">Select document type</option>
+                  <option value="ID Card">ID Card</option>
+                  <option value="Passport">Passport</option>
+                  <option value="Driving License">Driving License</option>
+                  <option value="Property Documents">Property Documents</option>
+                </select>
+                <label for="documentFile">Upload Document:</label>
+                <input
+                  type="file"
+                  id="documentFile"
+                  name="documentFile"
+                  required
+                />
+                <button type="submit" class="submit-btn">
+                  Upload Document
+                </button>
+              </form>
+            </div>
+            <div id="certificate" class="service-info">
+              <h2>Certificate Applications</h2>
+              <form
+                id="certificateForm"
+                class="service-form"
+                action="../includes/services-managment.php"
+                method="POST"
+                enctype="multipart/form-data"
+              >
+                <input type="hidden" name="serviceType" value="certificate" />
+                <label for="certificateName">Full Name:</label>
+                <input
+                  type="text"
+                  id="certificateName"
+                  name="certificateName"
+                  required
+                />
+                <label for="certificateEmail">Email:</label>
+                <input
+                  type="email"
+                  id="certificateEmail"
+                  name="certificateEmail"
+                  required
+                />
+                <label for="certificateType">Certificate Type:</label>
+                <select id="certificateType" name="certificateType" required>
+                  <option value="">Select certificate type</option>
+                  <option value="Birth Certificate">Birth Certificate</option>
+                  <option value="Death Certificate">Death Certificate</option>
+                  <option value="Marriage Certificate">
+                    Marriage Certificate
+                  </option>
+                  <option value="Domicile Certificate">
+                    Domicile Certificate
+                  </option>
+                </select>
+                <label for="certificateDate">Date Required:</label>
+                <input
+                  type="date"
+                  id="certificateDate"
+                  name="certificateDate"
+                  required
+                />
+                <button type="submit" class="submit-btn">
+                  Apply for Certificate
+                </button>
+              </form>
+            </div>
+            <div id="permits" class="service-info">
+              <h2>Permits and Licenses</h2>
+              <form
+                id="permitsForm"
+                class="service-form"
+                action="../includes/services-managment.php"
+                method="POST"
+                enctype="multipart/form-data"
+              >
+                <input type="hidden" name="serviceType" value="permits" />
+                <label for="permitsName">Full Name:</label>
+                <input
+                  type="text"
+                  id="permitsName"
+                  name="permitsName"
+                  required
+                />
+                <label for="permitsEmail">Email:</label>
+                <input
+                  type="email"
+                  id="permitsEmail"
+                  name="permitsEmail"
+                  required
+                />
+                <label for="permitsType">Permit/License Type:</label>
+                <select id="permitsType" name="permitsType" required>
+                  <option value="">Select permit/license type</option>
+                  <option value="Business License">Business License</option>
+                  <option value="Construction Permit">
+                    Construction Permit
+                  </option>
+                  <option value="Event Permit">Event Permit</option>
+                  <option value="Vehicle Registration">
+                    Vehicle Registration
+                  </option>
+                </select>
+                <label for="permitsDate">Application Date:</label>
+                <input
+                  type="date"
+                  id="permitsDate"
+                  name="permitsDate"
+                  required
+                />
+                <button type="submit" class="submit-btn">
+                  Apply for Permit/License
+                </button>
+              </form>
+            </div>
+            <div id="tax" class="service-info">
+              <h2>Tax and Bill Payments</h2>
+              <form
+                id="taxForm"
+                class="service-form"
+                action="../includes/services-managment.php"
+                method="POST"
+                enctype="multipart/form-data"
+              >
+                <input type="hidden" name="serviceType" value="tax" />
+                <label for="taxName">Full Name:</label>
+                <input type="text" id="taxName" name="taxName" required />
+                <label for="taxEmail">Email:</label>
+                <input type="email" id="taxEmail" name="taxEmail" required />
+                <label for="taxType">Payment Type:</label>
+                <select id="taxType" name="taxType" required>
+                  <option value="">Select payment type</option>
+                  <option value="Property Tax">Property Tax</option>
+                  <option value="Water Bill">Water Bill</option>
+                  <option value="Electricity Bill">Electricity Bill</option>
+                  <option value="Other">Other</option>
+                </select>
+                <label for="taxAmount">Amount:</label>
+                <input
+                  type="number"
+                  id="taxAmount"
+                  name="taxAmount"
+                  min="0"
+                  step="0.01"
+                  required
+                />
+                <button type="submit" class="submit-btn">Make Payment</button>
+              </form>
+            </div>
+            <div id="scholarship" class="service-info">
+              <h2>Scholarship Applications</h2>
+              <form
+                id="scholarshipForm"
+                class="service-form"
+                action="../includes/services-managment.php"
+                method="POST"
+                enctype="multipart/form-data"
+              >
+                <input type="hidden" name="serviceType" value="scholarship" />
+                <label for="scholarshipName">Full Name:</label>
+                <input
+                  type="text"
+                  id="scholarshipName"
+                  name="scholarshipName"
+                  required
+                />
+                <label for="scholarshipEmail">Email:</label>
+                <input
+                  type="email"
+                  id="scholarshipEmail"
+                  name="scholarshipEmail"
+                  required
+                />
+                <label for="scholarshipLevel">Education Level:</label>
+                <select id="scholarshipLevel" name="scholarshipLevel" required>
+                  <option value="">Select education level</option>
+                  <option value="High School">High School</option>
+                  <option value="Undergraduate">Undergraduate</option>
+                  <option value="Postgraduate">Postgraduate</option>
+                  <option value="PhD">PhD</option>
+                </select>
+                <label for="scholarshipGrade">Current Grade/GPA:</label>
+                <input
+                  type="text"
+                  id="scholarshipGrade"
+                  name="scholarshipGrade"
+                  required
+                />
+                <label for="scholarshipFile">Upload Transcripts:</label>
+                <input
+                  type="file"
+                  id="scholarshipFile"
+                  name="scholarshipFile"
+                  required
+                />
+                <button type="submit" class="submit-btn">
+                  Apply for Scholarship
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <p>&copy; 2024 MyDistrict. All rights reserved.</p>
+      </footer>
+    </div>
+  </body>
+</html>
